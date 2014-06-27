@@ -28,12 +28,6 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
     self.stories = [[NSMutableArray alloc] init];
     
     [self.stories addObject:@{@"title":         @"Worklight new version released",
@@ -43,10 +37,8 @@
     [self.stories addObject:@{@"title":         @"Worklight new CLI",
                               @"description":   @"Worklight 6.2 provides a new command line interface for developers",
                               @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"}];
-    
-    NSLog(@"%@",self.stories);
-    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -56,11 +48,6 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -90,7 +77,10 @@
     // Pass the selected object to the new view controller.
     NSIndexPath *path = [self.tableView indexPathForSelectedRow];
     CSDetailViewController * viewController = segue.destinationViewController;
-    viewController.story = self.stories[path.row];
+    if([viewController isKindOfClass:[CSDetailViewController class]]){
+        viewController.story = self.stories[path.row];
+    }
+    
 }
 
 

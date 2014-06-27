@@ -13,8 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
-- (IBAction)linkButtonPressed:(UIButton *)sender;
 
+- (IBAction)linkButtonPressed:(UIButton *)sender;
 
 @end
 
@@ -35,9 +35,9 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:YES];
+    [super viewWillAppear:YES];
     self.titleLabel.text = self.story[@"title"];
     self.descriptionLabel.text = self.story[@"description"];
 }
