@@ -13,8 +13,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+- (IBAction)linkButtonPressed:(UIButton *)sender;
 
-- (IBAction)infoButtonPressed:(UIButton *)sender;
 
 @end
 
@@ -35,23 +35,22 @@
     // Do any additional setup after loading the view.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:YES];
+    self.titleLabel.text = self.story[@"title"];
+    self.descriptionLabel.text = self.story[@"description"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)infoButtonPressed:(UIButton *)sender {
+- (IBAction)linkButtonPressed:(UIButton *)sender {
+    NSLog(@"link button pressed");
+    NSURL * url = [[NSURL alloc] initWithString:self.story[@"link"]];
+    [[UIApplication sharedApplication] openURL:url];
 }
 @end

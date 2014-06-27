@@ -10,4 +10,6 @@
 
 @interface CSDetailViewController : UIViewController
 
+@property (strong, nonatomic) NSDictionary * story;
+
 @end
