@@ -7,6 +7,8 @@
 //
 
 #define WORKLIGHT 0
+#define WL_ADAPTER @"news"
+#define WL_ADAPTER_PROCEDURE @"getStories"
 
 
 #import "CSTableViewController.h"

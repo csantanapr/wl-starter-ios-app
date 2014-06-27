@@ -77,9 +77,7 @@ In Build Settings  search for "Other Linker Flags"" field, enter the following v
 
 
 ### Modify the Code to use the Worklight API
-- Open CSTableViewController.m
-- Change "define WL YES"
-- Delete the viewDidLoad method
-- Uncomment the worklight methods 
+Open CSTableViewController.m and change to "#define WORKLIGHT 1"
+
 
 
