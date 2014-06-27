@@ -32,6 +32,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.stories = [[NSMutableArray alloc] init];
+    
+    [self.stories addObject:@{@"title":         @"Worklight new version released",
+                              @"description":   @"Worklight 6.2 was release on June 20th 2014",
+                              @"link":          @"http://ibm.com/developerworks/mobile/worklight/getting-started.html"}];
+    
+    [self.stories addObject:@{@"title":         @"Worklight new CLI",
+                              @"description":   @"Worklight 6.2 provides a new command line interface for developers",
+                              @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"}];
+    
+    NSLog(@"%@",self.stories);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,28 +57,29 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.stories.count;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
+    cell.textLabel.text = self.stories[indexPath.row][@"title"];
+    cell.detailTextLabel.text = self.stories[indexPath.row][@"description"];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

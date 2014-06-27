@@ -1,5 +1,5 @@
 //
-//  CSTableViewController.h
+//  CSDetailViewController.h
 //  WLStarter
 //
 //  Created by Carlos Santana on 6/27/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSTableViewController : UITableViewController
-
-@property (strong, nonatomic) NSMutableArray * stories;
+@interface CSDetailViewController : UIViewController
 
 @end
