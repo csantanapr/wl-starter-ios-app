@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Carlos Santana. All rights reserved.
 //
 
+#define WORKLIGHT 0
+
+
 #import "CSTableViewController.h"
 #import "CSDetailViewController.h"
 
@@ -24,6 +27,7 @@
     return self;
 }
 
+#if WORKLIGHT == 0
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -37,8 +41,16 @@
     [self.stories addObject:@{@"title":         @"Worklight new CLI",
                               @"description":   @"Worklight 6.2 provides a new command line interface for developers",
                               @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"}];
+    
 }
-
+#else
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    
+}
+#endif
 
 - (void)didReceiveMemoryWarning
 {
