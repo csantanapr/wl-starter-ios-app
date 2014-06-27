@@ -1,5 +1,5 @@
 //
-//  CSViewController.h
+//  CSTableViewController.h
 //  WLStarter
 //
 //  Created by Carlos Santana on 6/27/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CSViewController : UIViewController
+@interface CSTableViewController : UITableViewController
 
 @end
