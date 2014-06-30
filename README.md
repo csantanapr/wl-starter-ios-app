@@ -39,7 +39,7 @@ Create a project and change directory
     
 Add ios api, add adapter
 
-    wl add api wl_native_ios -e ios
+    wl add api wlnativeios -e ios
     wl add adapter news -t http
 
 Start the Worklight Server, build, deploy and open the browser console
@@ -55,8 +55,8 @@ For more detail instructions on how to add the Worklight APIs see the documentat
 #### Using XCode add the following file and folder
 Make sure that copy items and create groups is checked.
 
-    wlproject/apps/wl_native_ios/worklight.plist
-    wlproject/apps/wl_native_ios/WorklightAPI
+    wlproject/apps/wlnativeios/worklight.plist
+    wlproject/apps/wlnativeios/WorklightAPI
 
 #### Add framework and libraries dependencies
 In the target configuration and add the following:
