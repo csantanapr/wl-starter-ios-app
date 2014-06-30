@@ -6,15 +6,23 @@
 //  Copyright (c) 2014 Carlos Santana. All rights reserved.
 //
 
+// Set WORKLIGHT to 1 to use Worlight Server, set to 0 to use dummy data
 #define WORKLIGHT 0
-#define WL_ADAPTER @"news"
-#define WL_ADAPTER_PROCEDURE @"getStories"
-
 
 #import "CSTableViewController.h"
 #import "CSDetailViewController.h"
 
+#if WORKLIGHT == 1
+#define WL_ADAPTER_NAME @"news"
+#define WL_ADAPTER_PROCEDURE @"getStories"
+#import "WLClient.h"
+#import "WLProcedureInvocationData.h"
+@interface CSTableViewController () <WLDelegate>
+
+#else
 @interface CSTableViewController ()
+#endif
+
 
 @end
 
@@ -29,20 +37,13 @@
     return self;
 }
 
-#if WORKLIGHT == 0
+#if WORKLIGHT == 1
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.stories = [[NSMutableArray alloc] init];
-    
-    [self.stories addObject:@{@"title":         @"Worklight new version released",
-                              @"description":   @"Worklight 6.2 was release on June 20th 2014",
-                              @"link":          @"http://ibm.com/developerworks/mobile/worklight/getting-started.html"}];
-    
-    [self.stories addObject:@{@"title":         @"Worklight new CLI",
-                              @"description":   @"Worklight 6.2 provides a new command line interface for developers",
-                              @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"}];
+    WLProcedureInvocationData * invocationData = [[WLProcedureInvocationData alloc] initWithAdapterName:WL_ADAPTER_NAME procedureName:WL_ADAPTER_PROCEDURE];
+    [[WLClient sharedInstance] invokeProcedure:invocationData withDelegate:self];
     
 }
 #else
@@ -50,6 +51,14 @@
 {
     [super viewDidLoad];
     
+    NSDictionary *story1 = @{@"title":         @"Worklight new version released",
+                             @"description":   @"Worklight 6.2 was release on June 20th 2014",
+                             @"link":          @"http://ibm.com/developerworks/mobile/worklight/getting-started.html"};
+    
+    NSDictionary *story2 = @{@"title":         @"Worklight new CLI",
+                             @"description":   @"Worklight 6.2 provides a new command line interface for developers",
+                             @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"};
+    self.stories = [NSArray arrayWithObjects:story1, story2, nil];
     
 }
 #endif
@@ -96,6 +105,22 @@
     }
     
 }
+
+#pragma mark - Worklight
+
+#if WORKLIGHT == 1
+-(void) onSuccess:(WLResponse *)response
+{
+    NSArray *rssStories = [response getResponseJson][@"rss"][@"channel"][@"item"];
+    self.stories = rssStories;
+    [self.tableView reloadData];
+}
+-(void) onFailure:(WLFailResponse *)response
+{
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error" message:response.responseText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alert show];
+}
+#endif
 
 
 @end

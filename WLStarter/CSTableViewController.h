@@ -10,6 +10,6 @@
 
 @interface CSTableViewController : UITableViewController
 
-@property (strong, nonatomic) NSMutableArray * stories;
+@property (strong, nonatomic) NSArray * stories;
 
 @end

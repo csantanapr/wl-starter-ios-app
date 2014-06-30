@@ -76,8 +76,17 @@ In Build Settings add the following entry: $(SRCROOT)/WorklightAPI/include for H
 In Build Settings  search for "Other Linker Flags"" field, enter the following value: -ObjC
 
 
-### Modify the Code to use the Worklight API
+#### Modify the Code to use the Worklight API
 Open CSTableViewController.m and change to "#define WORKLIGHT 1"
+
+#### Add Keychain Entitlement
+Select the Target Capabiltiies turn on Keychain Sharing
+
+If you see an error message like "reason: 'Couldn't add the Keychain Item.'" you forgot to do this
+
+#### Simulator Issues
+If you see an error like reason: 'Couldn't add the Keychain Item.' when running on simulator, just reset the Simulator. 
+Select "iOS Simulator", then select "Reset Content and Settings..."
 
 
 
