@@ -1,5 +1,6 @@
 ignore everything in this directory
-*
+xcshareddata
+xcuserdata
 # Except this file
 !.gitignore
 

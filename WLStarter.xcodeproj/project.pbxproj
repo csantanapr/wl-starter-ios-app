@@ -60,6 +60,9 @@
 		0B1540B1195E0ADF0034B077 /* CSDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSDetailViewController.m; sourceTree = "<group>"; };
 		0B1540B3195E16CA0034B077 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		0B1540B5195E23FC0034B077 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		0B452B5719636D6E00C8BCB6 /* build_deploy_adapters.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_deploy_adapters.sh; sourceTree = "<group>"; };
+		0B452B5819636D6E00C8BCB6 /* start_wlserver.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = start_wlserver.sh; sourceTree = "<group>"; };
+		0B452B5919636D6E00C8BCB6 /* update_wlplist.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update_wlplist.sh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,9 @@
 		0B15406C195DF9B10034B077 = {
 			isa = PBXGroup;
 			children = (
+				0B452B5819636D6E00C8BCB6 /* start_wlserver.sh */,
+				0B452B5719636D6E00C8BCB6 /* build_deploy_adapters.sh */,
+				0B452B5919636D6E00C8BCB6 /* update_wlplist.sh */,
 				0B1540B5195E23FC0034B077 /* LICENSE */,
 				0B1540B3195E16CA0034B077 /* README.md */,
 				0B15407E195DF9B10034B077 /* WLStarter */,
@@ -172,7 +178,10 @@
 			buildPhases = (
 				0B154071195DF9B10034B077 /* Sources */,
 				0B154072195DF9B10034B077 /* Frameworks */,
+				0B452B5C19636DBA00C8BCB6 /* Run Script Update Worklight Server host in worklight.plist */,
 				0B154073195DF9B10034B077 /* Resources */,
+				0B452B5A19636D9400C8BCB6 /* Run Script Start Worklight Server if not running */,
+				0B452B5B19636DAD00C8BCB6 /* Run Script Build and Deploy Adapters */,
 			);
 			buildRules = (
 			);
@@ -257,6 +266,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B452B5A19636D9400C8BCB6 /* Run Script Start Worklight Server if not running */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Start Worklight Server if not running";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source start_wlserver.sh";
+		};
+		0B452B5B19636DAD00C8BCB6 /* Run Script Build and Deploy Adapters */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Build and Deploy Adapters";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source build_deploy_adapters.sh";
+		};
+		0B452B5C19636DBA00C8BCB6 /* Run Script Update Worklight Server host in worklight.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script Update Worklight Server host in worklight.plist";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source update_wlplist.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B154071195DF9B10034B077 /* Sources */ = {
