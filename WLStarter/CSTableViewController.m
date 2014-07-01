@@ -55,7 +55,7 @@
                              @"description":   @"Worklight 6.2 was release on June 20th 2014",
                              @"link":          @"http://ibm.com/developerworks/mobile/worklight/getting-started.html"};
     
-    NSDictionary *story2 = @{@"title":         @"Worklight new CLI",
+    NSDictionary *story2 = @{@"title":         @"Worklight adds CLI Support",
                              @"description":   @"Worklight 6.2 provides a new command line interface for developers",
                              @"link":          @"http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/dev/c_wl_cli_features.html"};
     self.stories = [NSArray arrayWithObjects:story1, story2, nil];
@@ -86,7 +86,6 @@
     // Configure the cell...
     
     cell.textLabel.text = self.stories[indexPath.row][@"title"];
-    cell.detailTextLabel.text = self.stories[indexPath.row][@"description"];
     return cell;
 }
 
