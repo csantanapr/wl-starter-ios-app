@@ -6,11 +6,11 @@ The sample application shows how to use the Worklight API to connect to the Work
 
 The application contains the minimal modifications and customizations on purpose, not intended to be publish to App Store.
 
-### Installation
+### Download the Code
 
-Download or clone the repository
+Clone from DevOps
 
-    git clone https://github.com/csantanapr/wl-starter-ios-app
+	git clone https://hub.jazz.net/git/csantana23/wl-starter-ios-app
 
 
 Open XCode project WLStarter
