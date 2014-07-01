@@ -63,13 +63,13 @@ To cli also works in interactive mode if you don't pass arguments, to get more i
 For more detail instructions on how to add the Worklight APIs see the documentation [http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/devref/t_copying_native_api_files_for_ios.html](http://ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/devref/t_copying_native_api_files_for_ios.html)
 
 1. ### Using XCode add the following file and folder
-Make sure that copy items and create groups is checked.
+	Make sure that copy items and create groups is checked.
 
-    wlproject/apps/wlnativeios/worklight.plist
-    wlproject/apps/wlnativeios/WorklightAPI
+    - **wlproject/apps/wlnativeios/worklight.plist**
+    - **wlproject/apps/wlnativeios/WorklightAPI**
 
 2. ### Add framework and libraries dependencies
-In the target configuration and add the following:
+	In the target configuration and add the following:
 
 	- CoreData.framework
 	- CoreLocation.framework
@@ -80,18 +80,22 @@ In the target configuration and add the following:
 	- libz.dylib
 
 3. ### Update the header search path
-In Build Settings add the following entry: $(SRCROOT)/WorklightAPI/include for HEADER_SEARCH_PATH
+	In Build Settings search for "Header Search Paths" and enter: **$(SRCROOT)/WorklightAPI/include**
 
 4. ### Add Linker flags for the new libraries
-In Build Settings  search for "Other Linker Flags"" field, enter the following value: -ObjC
+	In Build Settings  search for "Other Linker Flags"" and enter: **-ObjC**
 
 5. ### Turn on Keychain Sharing Capabilty
-Select the Target Capabiltiies to turn on Keychain Sharing
-If you see an error message like "reason: 'Couldn't add the Keychain Item.'" you forgot to do this step
+	In Target Capabiltiies turn on Keychain Sharing
 
-### Modify the Code to use the Worklight API
+	If you see an error message like "reason: 'Couldn't add the Keychain Item.'" you forgot to do this step
+
+### Modify the Code to enable the Worklight API
 Open CSTableViewController.m and change to "#define WORKLIGHT 1"
 This will change the table to use the Worklight Adapter to get data instead of the local data
+
+    // Set WORKLIGHT to 1 to use Worlight Server, set to 0 to use local data
+    #define WORKLIGHT 1
 
 #### Simulator Issues
 If you see an error like "reason: 'Couldn't add the Keychain Item.'" when running on simulator, just reset the Simulator. 
