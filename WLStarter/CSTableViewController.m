@@ -116,7 +116,7 @@
 }
 -(void) onFailure:(WLFailResponse *)response
 {
-    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error" message:response.responseText delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"Error" message:response.errorMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alert show];
 }
 #endif
