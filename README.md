@@ -4,6 +4,12 @@ The sample application shows how to use the Worklight API to connect to the Work
 
 The application contains the minimal modifications and customizations for educational purposes, not intended to be publish to App Store.
 
+### Videos
+Checkout the videos tutorial:
+
+- [Getting Started with Worklight 6.2 Command Line Interface (CLI) and Native iOS](http://youtu.be/7y6K2ysHtRY)
+- [Automate your workflow with Worklight 6.2 Command Line Interface (CLI) and Xcode](http://youtu.be/fJd38JfQpuE) 
+
 ## Download the Code
 
 Download Zip [zip](https://github.com/csantanapr/wl-starter-ios-app/archive/master.zip) or clone from DevOps
@@ -101,6 +107,16 @@ This will change the table to use the Worklight Adapter to get data instead of t
 If you see an error like "reason: 'Couldn't add the Keychain Item.'" when running on simulator, just reset the Simulator. 
 
 Select "iOS Simulator" from the menu, then select "Reset Content and Settings..."
+
+#### Videos
+- [Getting Started with Worklight 6.2 Command Line Interface (CLI) and Native iOS](http://youtu.be/7y6K2ysHtRY)
+- [Automate your workflow with Worklight 6.2 Command Line Interface (CLI) and Xcode](http://youtu.be/fJd38JfQpuE) 
+<iframe width="560" height="315" src="//www.youtube.com/embed/7y6K2ysHtRY" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/fJd38JfQpuE" frameborder="0" allowfullscreen></iframe>
+
+
+
 
 
 
