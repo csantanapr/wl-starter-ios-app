@@ -103,6 +103,25 @@ This will change the table to use the Worklight Adapter to get data instead of t
     // Set WORKLIGHT to 1 to use Worlight Server, set to 0 to use local data
     #define WORKLIGHT 1
 
+### Automation Xcode Scripts
+
+This project provides the following sample scripts
+
+1. `update_wlplist.sh` 
+	
+	It updates the worklight.plist with the ip address and port
+
+2. `start_wlserver.sh` 
+
+	It checks if the worklight server is not running and starts the server
+
+3. `build_deploy_adapters.sh` 
+
+	(It build and deploys the adapter code always have the latest running on the worklight server)
+
+To add more scripts to the build got to Target Settings, select Build Phases, select the plus (+) sign and pick "Run "
+
+
 #### Simulator Issues
 If you see an error like "reason: 'Couldn't add the Keychain Item.'" when running on simulator, just reset the Simulator. 
 
