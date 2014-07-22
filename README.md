@@ -91,13 +91,10 @@ For more detail instructions on how to add the Worklight APIs see the documentat
 4. ### Add Linker flags for the new libraries
 	In Build Settings  search for "Other Linker Flags"" and enter: **-ObjC**
 
-5. ### Turn on Keychain Sharing Capabilty
-	In Target Capabiltiies turn on Keychain Sharing
 
-	If you see an error message like "reason: 'Couldn't add the Keychain Item.'" you forgot to do this step
 
 ### Modify the Code to enable the Worklight API
-Open CSTableViewController.m and change to "#define WORKLIGHT 1"
+Open `CSTableViewController.m` and change to "#define WORKLIGHT 1"
 This will change the table to use the Worklight Adapter to get data instead of the local data
 
     // Set WORKLIGHT to 1 to use Worlight Server, set to 0 to use local data
@@ -118,14 +115,25 @@ This project provides the following sample scripts
 3. `build_deploy_adapters.sh` 
 
 	(It build and deploys the adapter code always have the latest running on the worklight server)
+	
+You might need to update the XCode project to adjust how the scripts get executed base on absoute paths
 
 To add more scripts to the build got to Target Settings, select Build Phases, select the plus (+) sign and pick "Run "
 
+For more details watch the video [Automate your workflow with Worklight 6.2 Command Line Interface (CLI) and Xcode](http://youtu.be/fJd38JfQpuE) 
 
-#### Simulator Issues
-If you see an error like "reason: 'Couldn't add the Keychain Item.'" when running on simulator, just reset the Simulator. 
 
-Select "iOS Simulator" from the menu, then select "Reset Content and Settings..."
+### Known Issues
+1. Turn on Keychain Sharing Capabilty
+
+	In Target Capabiltiies turn on Keychain Sharing
+
+	If you see an error message like "reason: 'Couldn't add the Keychain Item.'" you forgot to do this step
+	
+2. Simulator Issues
+
+	If you see an error like "reason: 'Couldn't add the Keychain Item.'" when running on simulator, just reset the Simulator. 
+	Select "iOS Simulator" from the menu, then select "Reset Content and Settings..."
 
 
 
